@@ -54,29 +54,49 @@ namespace WebApi.Controllers
         
 
         [HttpPost]
-        public Book AddBook(Book book)
+        public IActionResult AddBook([FromBody] Book newBook)
         {
-            BookList.Add(book);
-            return book;
+           var book = BookList.SingleOrDefault(x => x.Title == newBook.Title);
+
+            if (book is not null)
+            {
+                return BadRequest( new { message = "Book already exists" });
+            }
+
+            BookList.Add(newBook);
+            return Ok();
         }
 
+
         [HttpPut("{id}")]
-        public Book Update(int id, Book book)
+        public IActionResult UpdateBook(int id, [FromBody] Book updatedBook)
         {
-            var bookList = BookList.Where(x => x.Id == id).ToList<Book>();
-            bookList[0].Title = book.Title;
-            bookList[0].GenreId = book.GenreId;
-            bookList[0].PageCount = book.PageCount;
-            bookList[0].PublishDate = book.PublishDate;
-            return bookList[0];
+            var book = BookList.SingleOrDefault(x => x.Id == id);
+
+            if (book is null)
+            {
+                return BadRequest( new { message = "Book does not exist" });
+            }
+
+            book.GenreId = updatedBook.GenreId != default ? updatedBook.GenreId : book.GenreId;
+            book.PageCount = updatedBook.PageCount != default ? updatedBook.PageCount : book.PageCount;
+            book.PublishDate = updatedBook.PublishDate != default ? updatedBook.PublishDate : book.PublishDate;
+            book.Title = updatedBook.Title != default ? updatedBook.Title : book.Title;
+            return Ok();
         }
 
         [HttpDelete("{id}")]
-        public Book Delete(int id)
+        public IActionResult DeleteBook(int id)
         {
-            var bookList = BookList.Where(x => x.Id == id).ToList<Book>();
-            BookList.Remove(bookList[0]);
-            return bookList[0];
+            var book = BookList.SingleOrDefault(x => x.Id == id);
+
+            if (book is null)
+            {
+                return BadRequest( new { message = "Book does not exist" });
+            }
+
+            BookList.Remove(book);
+            return Ok();
         }
 
     }
