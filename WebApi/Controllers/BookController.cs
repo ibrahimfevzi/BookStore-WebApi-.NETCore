@@ -51,6 +51,34 @@ namespace WebApi.Controllers
             return bookList;
         }
 
+        [HttpPost]
+        public List<Book> AddBook(Book book)
+        {
+            BookList.Add(book);
+            return BookList;
+        }
+
+        [HttpPut("{id}")]
+        public List<Book> UpdateBook(int id, Book book)
+        {
+            var bookList = BookList.Where(x => x.Id == id).ToList<Book>();
+            bookList[0].Title = book.Title;
+            bookList[0].GenreId = book.GenreId;
+            bookList[0].PageCount = book.PageCount;
+            bookList[0].PublishDate = book.PublishDate;
+            return bookList;
+        }
+
+        [HttpDelete("{id}")]
+        public List<Book> DeleteBook(int id)
+        {
+            var bookList = BookList.Where(x => x.Id == id).ToList<Book>();
+            BookList.Remove(bookList[0]);
+            return BookList;
+        }
+
+
+
     }   
 
 }
