@@ -31,3 +31,14 @@
 /Users/ibrahimkayan/My-Repos/BookStore-WebApi-.NETCore/WebApi/obj/Debug/net7.0/WebApi.pdb
 /Users/ibrahimkayan/My-Repos/BookStore-WebApi-.NETCore/WebApi/obj/Debug/net7.0/WebApi.genruntimeconfig.cache
 /Users/ibrahimkayan/My-Repos/BookStore-WebApi-.NETCore/WebApi/obj/Debug/net7.0/ref/WebApi.dll
+/Users/ibrahimkayan/My-Repos/BookStore-WebApi-.NETCore/WebApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
+/Users/ibrahimkayan/My-Repos/BookStore-WebApi-.NETCore/WebApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/ibrahimkayan/My-Repos/BookStore-WebApi-.NETCore/WebApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.InMemory.dll
+/Users/ibrahimkayan/My-Repos/BookStore-WebApi-.NETCore/WebApi/bin/Debug/net7.0/Microsoft.Extensions.Caching.Abstractions.dll
+/Users/ibrahimkayan/My-Repos/BookStore-WebApi-.NETCore/WebApi/bin/Debug/net7.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/ibrahimkayan/My-Repos/BookStore-WebApi-.NETCore/WebApi/bin/Debug/net7.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/ibrahimkayan/My-Repos/BookStore-WebApi-.NETCore/WebApi/bin/Debug/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/ibrahimkayan/My-Repos/BookStore-WebApi-.NETCore/WebApi/bin/Debug/net7.0/Microsoft.Extensions.Logging.dll
+/Users/ibrahimkayan/My-Repos/BookStore-WebApi-.NETCore/WebApi/bin/Debug/net7.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/ibrahimkayan/My-Repos/BookStore-WebApi-.NETCore/WebApi/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
+/Users/ibrahimkayan/My-Repos/BookStore-WebApi-.NETCore/WebApi/bin/Debug/net7.0/Microsoft.Extensions.Primitives.dll
