@@ -8,3 +8,5 @@
 6. BookController.cs içerisindeki metotlar için Book.cs oluştur.
 7. CRUD kodlarını yaz.
 8. Swagger için dotnet watch run // WebApi projesini çalıştırma
+
+9. nuget.org üzerinden EntityFrameworkCore ve EntityFrameworkCore.InMemory paketlerini .NET CLI bölümündeki dotnet add package komutu ile yükle.
