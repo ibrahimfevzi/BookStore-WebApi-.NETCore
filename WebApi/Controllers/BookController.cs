@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.BookOperations.CreateBook;
+using WebApi.BookOperations.GetBooks;
+
 using WebApi.DBOperation;
+using static WebApi.BookOperations.CreateBook.CreateBookCommand;
 
 namespace WebApi.Controllers
 
@@ -46,10 +50,11 @@ namespace WebApi.Controllers
 
 
         [HttpGet]
-        public List<Book> GetBooks()
+        public IActionResult GetBooks()
         {
-            var bookList = _context.Books.OrderBy(x => x.Id).ToList<Book>();
-            return bookList;
+            GetBooksQuery query = new GetBooksQuery(_context);
+            var result = query.Handle();
+            return Ok(result);
         }
 
         
@@ -68,17 +73,17 @@ public IActionResult GetById(int id)
 
 
         [HttpPost]
-        public IActionResult AddBook([FromBody] Book newBook)
+        public IActionResult AddBook([FromBody] CreateBookModel newBook)
         {
-           var book = _context.Books.SingleOrDefault(x => x.Title == newBook.Title);
-
-            if (book is not null)
-            {
-                return BadRequest( new { message = "Book already exists" });
-            }
-
-            _context.Books.Add(newBook);
-            _context.SaveChanges();
+           CreateBookCommand command = new CreateBookCommand(_context);
+           try {
+               command.Model = newBook;
+               command.Handle();
+              }
+              catch (Exception ex )
+                {
+                    return BadRequest(ex.Message);
+                    }
             return Ok();
         }
 
